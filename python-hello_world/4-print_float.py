@@ -1,3 +1,4 @@
 #!/usr/bin/python3
 number = 3.14159
-print(f"Float: %.2f" % number)
+output_format = "%.2f" % number
+print(f"Float:", output_format)
