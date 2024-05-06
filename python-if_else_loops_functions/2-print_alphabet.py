@@ -1,5 +1,3 @@
 #!/usr/bin/python3
-str = "a"
-while str <= "z":
-    print(str, end="")
-    str = chr(ord(str) + 1)
+for char in range(97, 123):
+    print(chr(char), end="")
