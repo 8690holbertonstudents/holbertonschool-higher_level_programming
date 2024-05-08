@@ -1,12 +1,10 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
-    import importlib
-
-    module = importlib.import_module("hidden_4")
+    import hidden_4
 
     names = []
-    for name in dir(module):
-        if not name.startswith("__"):
+    for name in dir(hidden_4):
+        if not name[0:2] == "__":
             names.append(name)
 
     names.sort()
