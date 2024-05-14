@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
+    if roman_string == None or len(roman_string) == 0:
+        return (0)
+
     my_dictionnary = {
         "I": 1,
         "V": 5,
