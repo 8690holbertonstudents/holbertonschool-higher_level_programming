@@ -6,5 +6,5 @@ def safe_print_integer(value):
         if isinstance(value, int):
             print("{:d}".format(value))
             return (True)
-    except TypeError:
+    except TypeError or ValueError:
         return (False)
