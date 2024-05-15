@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 def safe_print_list_integers(my_list=[], x=0):
+    if not my_list:
+        return
     try:
         i = 0
         j = 0
@@ -8,7 +10,7 @@ def safe_print_list_integers(my_list=[], x=0):
                 print("{}".format(my_list[i]), end="")
                 j += 1
             i += 1
-        print()
-    except IndexError or TypeError:
-        print()
+    except (IndexError, TypeError, ValueError):
+        pass
+    print()
     return (j)

@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def safe_print_integer(value):
-    if value is None:
+    if not value:
         return (False)
     try:
         if isinstance(value, int):
