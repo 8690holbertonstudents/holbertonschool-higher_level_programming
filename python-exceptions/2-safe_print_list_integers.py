@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 def safe_print_list_integers(my_list=[], x=0):
-    if not my_list:
-        raise ValueError
     i = 0
     j = 0
     while i <= x - 1:
