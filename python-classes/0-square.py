@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 class Square:
+    """This Python script defines a class named Square.
     """
-    This Python script defines a class named Square.
-    """
-    pass  # An empty block
+    pass
