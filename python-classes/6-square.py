@@ -85,11 +85,14 @@ class Square:
             >>> print: character # represent Square size.
                 with space before represent by Square Position.
         """
-        if self.__position[1] > 0:
-            print("")
+        for pos in range(self.position[1]):
+            if self.__position[1] > 0:
+                print("")
+            else:
+                print(" ")
 
         if self.__size == 0:
-            print()
+            print("")
         else:
             for row in range(self.__size):
                 for val in range(self.__position[0]):
