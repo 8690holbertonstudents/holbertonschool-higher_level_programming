@@ -38,11 +38,11 @@ class Square:
             TypeError: size must be an integer.
             ValueError: size must be upper or equal to zero.
         """
-        self.__size = value
-        if isinstance(self.__size, int) is False:
+        if isinstance(value, int) is False:
             raise TypeError("size must be an integer")
-        elif self.__size < 0:
+        elif value < 0:
             raise ValueError("size must be >= 0")
+        self.__size = value
 
     @property
     def position(self):
@@ -65,12 +65,13 @@ class Square:
             TypeError: position must be a tuple
             of two positives integer values.
         """
-        self.__position = value
-        if isinstance(self.__position, tuple) is False or \
-            len(self.__position) != 2 or \
-                self.__position[0] < 0 or \
-                self.__position[1] < 0:
+        if isinstance(value, tuple) is False \
+           or len(value) != 2 \
+           or value[0] < 0 or value[1] < 0 \
+           or isinstance(value[0], int) is False \
+           or isinstance(value[1], int) is False:
             raise TypeError("position must be a tuple of 2 positive integers")
+        self.__position = value
 
     def area(self):
         """Fonction to calculate the area of Square.
@@ -81,17 +82,20 @@ class Square:
         return (self.__size * self.__size)
 
     def my_print(self):
-        """Fonction to print Square size.
+        """Fonction to print Square.
 
             >>> print: character # represent Square size.
                 with space before represent by Square Position.
         """
+        if self.__position[1] > 0:
+            print("")
+
         if self.__size == 0:
             print()
         else:
-            for r_size in range(self.__size):
-                for space in range(self.__position[0]):
-                    print(f" ", end="")
-                for c_size in range(self.__size):
-                    print(f"#", end="")
+            for row in range(self.__size):
+                for val in range(self.__position[0]):
+                    print(" ", end="")
+                for col in range(self.__size):
+                    print("#", end="")
                 print()
