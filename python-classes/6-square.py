@@ -14,8 +14,8 @@ class Square:
             position: Position of the the object Square.
 
         """
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
@@ -40,7 +40,7 @@ class Square:
         """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
-        if value <= 0:
+        if value < 0:
             raise ValueError("size must be >= 0")
         self.__size = value
 
@@ -65,9 +65,10 @@ class Square:
             TypeError: position must be a tuple
             of two positives integer values.
         """
-        if not isinstance(value, tuple) or len(value) != 2 \
-                or all(val >= 0 for val in value) \
-                or not all(isinstance(value[x], int) for x in value):
+        if not isinstance(value, tuple) or len(value) != 2:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        if not all(isinstance(x, int) for x in value) \
+           or any(x < 0 for x in value):
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 
@@ -85,18 +86,10 @@ class Square:
             >>> print: character # represent Square size.
                 with space before represent by Square Position.
         """
-        for pos in range(self.position[1]):
-            if self.__position[1] > 0:
-                print("")
-            else:
-                print(" ")
-
-        if self.__size == 0:
-            print("")
-        else:
-            for row in range(self.__size):
-                for val in range(self.__position[0]):
-                    print(" ", end="")
-                for col in range(self.__size):
-                    print("#", end="")
-                print()
+        if self.size == 0:
+            print()
+            return
+        for i in range(self.position[1]):
+            print()
+        for j in range(self.size):
+            print(" " * self.position[0] + "#" * self.size)
