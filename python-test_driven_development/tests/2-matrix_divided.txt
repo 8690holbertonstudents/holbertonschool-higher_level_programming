@@ -19,9 +19,8 @@ ZeroDivisionError: division by zero
 Traceback (most recent call last):
 TypeError: div must be a number
 
->>> matrix_divided([[2, 8], [40, 1500]], float(inf))
-Traceback (most recent call last):
-NameError: name 'inf' is not defined
+>>> matrix_divided([[2, 8], [40, 1500]], float("inf"))
+[[0.0, 0.0], [0.0, 0.0]]
 
 >>> matrix_divided(, 2)
 Traceback (most recent call last):
