@@ -26,3 +26,10 @@ TypeError: b must be an integer
 Traceback (most recent call last):
 ...
 TypeError: b must be an integer
+
+>>> add_integer(float('inf'), 1.0)
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
+
+
