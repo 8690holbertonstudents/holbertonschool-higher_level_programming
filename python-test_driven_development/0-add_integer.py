@@ -4,8 +4,6 @@
     Using a .txt file in /tests directory.
 
 """
-import doctest
-"""doctest.testfile("example.txt")"""
 
 
 def add_integer(a, b=98):
