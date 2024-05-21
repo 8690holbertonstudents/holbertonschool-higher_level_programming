@@ -25,7 +25,7 @@ class Rectangle:
 
         """
         if self.width == 0 or self.height == 0:
-            return("")
+            return ("")
         my_str = ""
         for w in range(self.height):
             my_str += ("#" * self.width) + "\n"
