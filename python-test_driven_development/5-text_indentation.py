@@ -17,14 +17,13 @@ def text_indentation(text):
     i = 0
     end = (len(text) - 1)
     while i <= end:
-        if ord(text[i]) == 46 \
-           or ord(text[i]) == 58 \
-           or ord(text[i]) == 63:
-            print("{}".format(text[i]))
-            print()
-            if i != end:
-                if ord(text[i + 1]) == 32:
-                    i += 1
-        else:
-            print("{}".format(text[i]), end="")
+        if text[i] != '“':
+            if text[i] in set(".?:"):
+                print("{}".format(text[i]))
+                print()
+                if i != end:
+                    if ord(text[i + 1]) == 32:
+                        i += 1
+            else:
+                print("{}".format(text[i]), end="")
         i += 1
