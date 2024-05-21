@@ -22,8 +22,9 @@ def text_indentation(text):
            or ord(text[i]) == 63:
             print("{}".format(text[i]))
             print()
-            if ord(text[i + 1]) == 32 and i != end:
-                i += 1
+            if i != end:
+                if ord(text[i + 1]) == 32:
+                    i += 1
         else:
             print("{}".format(text[i]), end="")
         i += 1
