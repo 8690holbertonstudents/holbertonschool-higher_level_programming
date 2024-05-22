@@ -1,16 +1,21 @@
 #!/usr/bin/python3
 """
-    Module to define f the object
-    is exactly an instance of the specified class.
-
-    Args:
-    obj: The object to compare.
-    a_class: The defined class.
+    Module to manipulate subclasses.
 """
 
 
 def is_same_class(obj, a_class):
+    """
+        Function that compare if the object
+        is exactly an instance of the specified class.
 
+        Args:
+        obj: The object to compare.
+        a_class: The defined class.
+
+        Returns:
+        True if exactly the same, otherwise False.
+    """
     if isinstance(obj, a_class):
         return (True)
     else:
