@@ -137,9 +137,9 @@ class Rectangle:
         if not isinstance(rect_2, Rectangle):
             raise TypeError("rect_2 must be an instance of Rectangle")
 
-        if rect_1.__dict__ == rect_2.__dict__:
+        if Rectangle.area(rect_1) == Rectangle.area(rect_2):
             return (rect_1)
-        elif sorted(rect_1.__dict__.items()) < sorted(rect_2.__dict__.items()):
+        elif Rectangle.area(rect_1) < Rectangle.area(rect_2):
             return (rect_2)
         else:
             return (rect_1)
