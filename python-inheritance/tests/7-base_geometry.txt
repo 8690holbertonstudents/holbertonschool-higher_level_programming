@@ -2,7 +2,10 @@
 
 >>> My_BaseGeometry = BaseGeometry()
 
->>> My_BaseGeometry.integer_validator("Bond_00", 7)
+>>> try:
+...     My_BaseGeometry.integer_validator("Bond_00", 7)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
 
 >>> My_BaseGeometry.area()
 Traceback (most recent call last):
