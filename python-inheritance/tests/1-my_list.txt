@@ -7,3 +7,8 @@
 >>> my_list.append(100)
 >>> print(my_list)
 [100]
+
+>>> my_list.append(50)
+>>> new_list = my_list
+>>> new_list.print_sorted()
+[50, 100]
