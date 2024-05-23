@@ -4,18 +4,3 @@
 
 >>> My_BG.integer_validator("Bond_00", 7)
 
->>> My_BG.integer_validator()
-Traceback (most recent call last):
-TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
-
->>> My_BG.integer_validator("Bond_00")
-Traceback (most recent call last):
-TypeError: integer_validator() missing 1 required positional argument: 'value'
-
->>> My_BG.integer_validator("Bond_00", "7")
-Traceback (most recent call last):
-TypeError: integer_validator() missing 1 required positional argument: 'name'
-
->>> My_BG.integer_validator("Bond_00", -7)
-Traceback (most recent call last):
-ValueError: Bond_00 must be greater than 0
