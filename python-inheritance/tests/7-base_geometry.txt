@@ -4,3 +4,6 @@
 
 >>> My_BG.integer_validator("Bond_00", 7)
 
+>>> My_BG.area()
+Traceback (most recent call last):
+Exception: area() is not implemented
