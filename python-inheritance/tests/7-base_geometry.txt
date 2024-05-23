@@ -37,6 +37,8 @@ Traceback (most recent call last):
 TypeError: Bond_00 must be an integer
 
 >>> My_BG.integer_validator("Bond_00", True)
+Traceback (most recent call last):
+TypeError: Bond_0 must be an integer
 
 >>> My_BG.integer_validator("Bond_0", {0, 7})
 Traceback (most recent call last):
