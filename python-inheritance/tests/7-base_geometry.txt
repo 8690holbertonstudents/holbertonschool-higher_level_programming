@@ -2,46 +2,73 @@
 
 >>> My_BG = BaseGeometry()
 
->>> My_BG.integer_validator("Bond_00", 7)
+>>> try:
+...     My_BG.integer_validator("Bond_00", 7)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
 
->>> My_BG.area()
-Traceback (most recent call last):
+>>> try:
+...     My_BG.area()
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
 Exception: area() is not implemented
 
->>> My_BG.integer_validator()
-Traceback (most recent call last):
+>>> try:
+...     My_BG.integer_validator()
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
 TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
->>> My_BG.integer_validator("Bond_00")
-Traceback (most recent call last):
+>>> try:
+...     My_BG.integer_validator("Bond_00")
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
 TypeError: integer_validator() missing 1 required positional argument: 'value'
 
->>> My_BG.integer_validator("Bond_00", 0)
-Traceback (most recent call last):
+>>> try:
+...     My_BG.integer_validator("Bond_00", 0)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
 ValueError: Bond_00 must be greater than 0
 
->>> My_BG.integer_validator("Bond_00", -7)
-Traceback (most recent call last):
+>>> try:
+...     My_BG.integer_validator("Bond_00", -7)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
 ValueError: Bond_00 must be greater than 0
 
->>> My_BG.integer_validator("Bond_00", "7")
-Traceback (most recent call last):
+>>> try:
+...     My_BG.integer_validator("Bond_00", "7")
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
 TypeError: Bond_00 must be an integer
 
->>> My_BG.integer_validator("Bond_00", (7,))
-Traceback (most recent call last):
+>>> try:
+...     My_BG.integer_validator("Bond_00", (7,))
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
 TypeError: Bond_00 must be an integer
 
->>> My_BG.integer_validator("Bond_00", [7])
-Traceback (most recent call last):
+>>> try:
+...     My_BG.integer_validator("Bond_00", [7])
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
 TypeError: Bond_00 must be an integer
 
->>> My_BG.integer_validator("Bond_00", True)
+>>> try:
+...     My_BG.integer_validator("Bond_00", True)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+TypeError: Bond_00 must be an integer
 
->>> My_BG.integer_validator("Bond_0", {0, 7})
-Traceback (most recent call last):
+>>> try:
+...     My_BG.integer_validator("Bond_0", {0, 7})
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
 TypeError: Bond_0 must be an integer
 
->>> My_BG.integer_validator("Bond_007", None)
-Traceback (most recent call last):
+>>> try:
+...     My_BG.integer_validator("Bond_007", None)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
 TypeError: Bond_007 must be an integer
