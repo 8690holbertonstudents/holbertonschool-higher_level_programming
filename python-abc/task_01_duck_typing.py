@@ -85,7 +85,7 @@ class Rectangle(Shape):
         The calculated area.
 
         """
-        return (abs(self.width * self.height))
+        return (self.width * self.height)
 
     def perimeter(self):
         """
@@ -95,11 +95,6 @@ class Rectangle(Shape):
         The calculated perimeter.
 
         """
-        if self.width < 0:
-            self.width = self.width * -1
-        if self.height < 0:
-            self.height = self.height * -1  
-
         return (2 * (self.width + self.height))
 
 
