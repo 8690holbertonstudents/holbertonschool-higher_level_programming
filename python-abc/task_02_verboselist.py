@@ -63,7 +63,7 @@ class VerboseList(list):
 
         """
         if idx is None:
-            popped = self[-1]
+            popped = super().pop(-1)
         else:
             popped = super().pop(idx)
 
