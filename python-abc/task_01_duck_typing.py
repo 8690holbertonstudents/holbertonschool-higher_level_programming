@@ -48,7 +48,7 @@ class Circle(Shape):
         The calculated area.
 
         """
-        return (math.pi * ((self.__radius) ** 2))
+        return (abs(math.pi * ((self.__radius) ** 2)))
 
     def perimeter(self):
         """
@@ -58,7 +58,7 @@ class Circle(Shape):
         The calculated perimeter.
 
         """
-        return (2 * math.pi * self.__radius)
+        return (abs(2 * math.pi * self.__radius))
 
 
 class Rectangle(Shape):
