@@ -95,7 +95,12 @@ class Rectangle(Shape):
         The calculated perimeter.
 
         """
-        return (abs(2 * (self.width + self.height)))
+        if self.width < 0:
+            self.width = self.width * -1
+        if self.height < 0:
+            self.height = self.height * -1  
+
+        return (2 * (self.width + self.height))
 
 
 def shape_info(s_info):
