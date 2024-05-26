@@ -3,11 +3,11 @@
 >>> print(matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
 [[13, 16]]
 
->>> print(matrix_mul("string", [[3, 4]]))
+>>> print(matrix_mul("string", [[3, 4], [5, 6]]))
 Traceback (most recent call last):
 TypeError: m_a must be a list or m_b must be a list
 
->>> print(matrix_mul([[1, 2]], "string"))
+>>> print(matrix_mul([[1, 2], [3, 4]], "string"))
 Traceback (most recent call last):
 TypeError: m_a must be a list or m_b must be a list
 
