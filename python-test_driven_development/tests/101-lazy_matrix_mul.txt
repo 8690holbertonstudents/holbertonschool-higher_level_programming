@@ -1,0 +1,44 @@
+>>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+
+>>> print(lazy_matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
+[[13, 16]]
+
+>>> print(lazy_matrix_mul("string", [[3, 4], [5, 6]]))
+Traceback (most recent call last):
+numpy.core._exceptions._UFuncNoLoopError: ufunc 'matmul' did not contain a loop with signature matching types (dtype('<U6'), dtype('int64')) -> None
+
+>>> print(lazy_matrix_mul([[1, 2], [3, 4]], "string"))
+Traceback (most recent call last):
+numpy.core._exceptions._UFuncNoLoopError: ufunc 'matmul' did not contain a loop with signature matching types (dtype('<U6'), dtype('int64')) -> None
+
+>>> print(lazy_matrix_mul([1, 2], [[3, 4]]))
+Traceback (most recent call last):
+ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 1 is different from 2)
+
+>>> print(lazy_matrix_mul([[1, 2]], [3, 4]))
+Traceback (most recent call last):
+ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 1 is different from 2)
+
+>>> print(lazy_matrix_mul([[]], [[3, 4]]))
+Traceback (most recent call last):
+ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 1 is different from 2)
+
+>>> print(lazy_matrix_mul([[1, 2]], [[]]))
+Traceback (most recent call last):
+ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 1 is different from 2)
+
+>>> print(lazy_matrix_mul([[1, 2], [3, "4"]], [[5, 6], [7, 8]]))
+Traceback (most recent call last):
+numpy.core._exceptions._UFuncNoLoopError: ufunc 'matmul' did not contain a loop with signature matching types (dtype('int64'), dtype('<U21')) -> None
+
+>>> print(lazy_matrix_mul([[1, 2], [3, 4]], [[5, "6"], [7, 8]]))
+Traceback (most recent call last):
+numpy.core._exceptions._UFuncNoLoopError: ufunc 'matmul' did not contain a loop with signature matching types (dtype('int64'), dtype('<U21')) -> None
+
+>>> print(lazy_matrix_mul([[1, 2, 10], [3, 4]], [[5, 6], [7, 8]]))
+Traceback (most recent call last):
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (2,) + inhomogeneous part.
+
+>>> print(lazy_matrix_mul([[1, 2], [3, 4]], [[5, 6, 10], [7, 8]]))
+Traceback (most recent call last):
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (2,) + inhomogeneous part.
