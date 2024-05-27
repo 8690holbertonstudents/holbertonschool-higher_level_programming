@@ -2,7 +2,6 @@
 """
     Module to use JSON.
 """
-import json
 
 
 def class_to_json(obj):
@@ -18,4 +17,4 @@ def class_to_json(obj):
         Returns:
          the dictionary description.
     """
-    return(obj.__dict__)
+    return (obj.__dict__)
