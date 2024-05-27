@@ -10,7 +10,7 @@ def write_file(filename="", text=""):
 
         Args:
          filename: The filename to create.
-         text: The to write in the file.
+         text: The text to write in the file.
 
         Returns:
          The numbers of characters written.
