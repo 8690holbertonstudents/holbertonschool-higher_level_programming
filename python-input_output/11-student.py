@@ -45,3 +45,18 @@ class Student():
                 My_dict[key] = value
 
         return (My_dict)
+
+    def reload_from_json(self, json):
+        """
+            Method that replace all attributes
+            of Student instance.
+
+            Args:
+                json: A dictionary.
+
+            Returns:
+            update attributes.
+        """
+        for key, value in json.items():
+            if key in self.__dict__:
+                self.__dict__[key] = value

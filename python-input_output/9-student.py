@@ -23,7 +23,7 @@ class Student():
 
     def to_json(self):
         """
-            Function that returns the dictionary representation
+            Method that returns the dictionary representation
             of a Student instance.
 
             Returns:
