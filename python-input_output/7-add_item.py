@@ -14,5 +14,5 @@ try:
     data += args
     save_to_json_file(data, filename)
 except FileNotFoundError:
-    data = []
+    data = [] + args
     save_to_json_file(data, filename)
