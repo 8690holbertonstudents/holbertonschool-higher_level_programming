@@ -18,4 +18,4 @@ def save_to_json_file(my_obj, filename):
          Write the object JSON string to a text file.
     """
     with open(filename, mode="w", encoding="utf-8") as My_File:
-        My_File.write(json.dumps(my_obj))
+        json.dump(my_obj, My_File)
