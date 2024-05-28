@@ -16,6 +16,4 @@ def load_from_json_file(filename):
          Object created from JSON file.
     """
     with open(filename, mode="r", encoding="utf-8") as My_File:
-        json_str = My_File.read()
-        my_obj = json.loads(json_str)
-        return (my_obj)
+        return (json.load(My_File))
