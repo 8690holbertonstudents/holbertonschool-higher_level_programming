@@ -45,7 +45,7 @@ class CustomObject:
         try:
             with open(filename, mode="wb") as My_File:
                 pickle.dump(self, My_File)
-        except (FileExistsError,FileNotFoundError):
+        except (FileExistsError, FileNotFoundError):
             return (None)
 
     @classmethod
@@ -64,5 +64,5 @@ class CustomObject:
         try:
             with open(filename, mode="rb") as My_File:
                 return (pickle.load(My_File))
-        except (FileExistsError,FileNotFoundError):
+        except (FileExistsError, FileNotFoundError):
             return (None)
