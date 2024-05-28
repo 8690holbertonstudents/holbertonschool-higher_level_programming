@@ -11,7 +11,7 @@ def serialize_and_save_to_file(data, filename):
 
         Args:
             data: A Python Dictionary with data
-            filename:  The filename of the output JSON file.
+            filename: The filename of the output JSON file.
                 If the output file already exists it should be replaced.
 
         Returns:
@@ -32,4 +32,4 @@ def load_and_deserialize(filename):
         The Python dictionary.
     """
     with open(filename, mode="r", encoding="utf-8") as My_File:
-        json.load(My_File)
+        return (json.load(My_File))
