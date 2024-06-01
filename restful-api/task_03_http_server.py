@@ -6,8 +6,6 @@
 import http.server
 import socketserver
 import json
-HOST = "localhost"
-PORT = 8000
 
 
 class MyFirstServer(http.server.BaseHTTPRequestHandler):
@@ -54,6 +52,6 @@ class MyFirstServer(http.server.BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    with socketserver.TCPServer((HOST, PORT), MyFirstServer) as httpd:
-        print(f"Server started on {HOST}:{PORT}")
+    with socketserver.TCPServer(("localhost", 8000), MyFirstServer) as httpd:
+        print("Server started OK")
         httpd.serve_forever()
