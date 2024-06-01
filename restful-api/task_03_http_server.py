@@ -3,12 +3,11 @@
     Python class to Develop a simple API
     using Python with the "http.server" module.
 """
-import http.server
-import socketserver
+from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
 
 
-class MyFirstServer(http.server.BaseHTTPRequestHandler):
+class MyFirstServer(BaseHTTPRequestHandler):
     """
         Subclass of http.server.BaseHTTPRequestHandler named MyFirstServer.
     """
@@ -52,6 +51,6 @@ class MyFirstServer(http.server.BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    with socketserver.TCPServer(("localhost", 8000), MyFirstServer) as httpd:
+    with HTTPServer(("localhost", 8000), MyFirstServer) as httpd:
         print("Server started OK")
         httpd.serve_forever()
