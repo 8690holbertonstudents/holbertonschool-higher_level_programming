@@ -20,24 +20,32 @@ class MyFirstServer(http.server.BaseHTTPRequestHandler):
         Method to handle GET requests.
 
         Returns:
-            Status code: 200 = OK / 404 = Not found.
-            /data endpoint return a simple dataset
-            /status endpoint return OK.
-            others returns err 404.
+           The good output for define endpoints,
+           error 404 with message for the others.
         """
-        if self.path == "/data":
+        if self.path == "/":
+            self.send_response(200)
+            self.send_header("Content-type", "text/html")
+            self.end_headers()
+            self.wfile.write(bytes("Hello, this is a simple API!", "utf-8"))
+        elif self.path == "/data":
             self.send_response(200)
             self.send_header("Content-type", "application/json")
             self.end_headers()
             dataset = {"name": "John", "age": 30, "city": "New York"}
             self.wfile.write(json.dumps(dataset).encode("utf-8"))
-        elif self.path == "/status":
+        elif self.path == "/info":
             self.send_response(200)
             self.send_header("Content-type", "text/html")
             self.end_headers()
-            self.wfile.write(bytes("OK", "utf-8"))
+            dataset = {"version": "1.0",
+                       "description": "A simple API built with http.server"}
+            self.wfile.write(json.dumps(dataset).encode("utf-8"))
         else:
-            self.send_error(404, "Not Found")
+            self.send_response(404)
+            self.send_header("Content-type", "text/html")
+            self.end_headers()
+            self.wfile.write(bytes("Endpoint not found", "utf-8"))
 
 
 if __name__ == "__main__":
