@@ -50,6 +50,13 @@ class MyFirstServer(BaseHTTPRequestHandler):
             self.wfile.write(bytes("Endpoint not found", "utf-8"))
 
 
-if __name__ == "__main__":
+def run():
+    """
+    Function to run the script at localhost : port 8000
+    """
     httpd = HTTPServer(("localhost", 8000), MyFirstServer)
     httpd.serve_forever()
+
+
+if __name__ == "__main__":
+    run()
