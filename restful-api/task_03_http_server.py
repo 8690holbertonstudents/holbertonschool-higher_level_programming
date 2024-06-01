@@ -51,5 +51,5 @@ class MyFirstServer(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    with HTTPServer(("localhost", 8000), MyFirstServer) as httpd:
-        httpd.serve_forever()
+    httpd = HTTPServer(("localhost", 8000), MyFirstServer)
+    httpd.serve_forever()
