@@ -9,7 +9,8 @@ import json
 
 class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
     """
-        Subclass of http.server.BaseHTTPRequestHandler named SimpleHTTPRequestHandler.
+        Subclass of http.server.BaseHTTPRequestHandler
+        named SimpleHTTPRequestHandler.
     """
 
     def do_GET(self):
