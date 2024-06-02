@@ -11,7 +11,7 @@ app = Flask(__name__)
 users = {}
 
 
-@app.route("/")
+@ app.route("/")
 def home():
     """
     Function to handle the "/" route.
@@ -19,10 +19,10 @@ def home():
     Returns:
         A string with message "Welcome to the Flask API!"
     """
-    return "<p>Welcome to the Flask API!</p>"
+    return "Welcome to the Flask API!"
 
 
-@app.route("/status")
+@ app.route("/status")
 def status():
     """
     Function to handle the "/status" route.
@@ -30,10 +30,10 @@ def status():
     Returns:
         A string with message "OK"
     """
-    return "<p>OK</p>"
+    return "OK"
 
 
-@app.route("/data")
+@ app.route("/data")
 def data():
     """
     Function to handle the "/data" route.
@@ -45,7 +45,7 @@ def data():
     return (jsonify(list(users.keys())))
 
 
-@app.route("/users/<username>")
+@ app.route("/users/<username>")
 def get_user(username):
     """
     Function to handle the "/users/<username>" route.
@@ -56,12 +56,12 @@ def get_user(username):
     """
     user = users.get(username)
     if user:
-        return jsonify(user)
+        return (jsonify(user))
     else:
         return (jsonify({"error": "User not found"}), 404)
 
 
-@app.route("/add_user", methods=["POST"])
+@ app.route("/add_user", methods=["POST"])
 def add_user():
     """
     Function to add a new user.
@@ -69,11 +69,10 @@ def add_user():
     Returns:
         Add a new user to the users dictionary.
     """
-    user_data = request.get_json
-    if "username" not in user_data:
-        username = user_data["username"]
-        users[username] = user_data
-        return jsonify({"message": "User added", "user": user_data})
+    user_data = request.get_json()
+    username = user_data["username"]
+    users[username] = user_data
+    return jsonify({"message": "User added", "user": user_data})
 
 
 if __name__ == "__main__":
