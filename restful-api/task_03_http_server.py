@@ -7,9 +7,9 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
 
 
-class MyFirstServer(BaseHTTPRequestHandler):
+class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
     """
-        Subclass of http.server.BaseHTTPRequestHandler named MyFirstServer.
+        Subclass of http.server.BaseHTTPRequestHandler named SimpleHTTPRequestHandler.
     """
 
     def do_GET(self):
@@ -50,17 +50,7 @@ class MyFirstServer(BaseHTTPRequestHandler):
             self.wfile.write(b"404 Not found")
 
 
-def run(server_class=HTTPServer, handler_class=MyFirstServer):
-    """
-    Function to start the HTTPServer at localhost:8000
-    """
-    server_address = ("localhost", 8000)
-    httpd = server_class(server_address, handler_class)
-    httpd.serve_forever()
-
-
 if __name__ == "__main__":
-    """
-    Function to run the HTTP server
-    """
-    run()
+    httpd = HTTPServer(('', 8000), SimpleHTTPRequestHandler)
+    print("serving at port", 8000)
+    httpd.serve_forever()
