@@ -24,7 +24,7 @@ class MyFirstServer(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header("Content-type", "text/plain")
             self.end_headers()
-            self.wfile.write(bytes("Hello, this is a simple API!", "utf-8"))
+            self.wfile.write(b"Hello, this is a simple API!")
         elif self.path == "/data":
             self.send_response(200)
             self.send_header("Content-type", "application/json")
@@ -42,12 +42,12 @@ class MyFirstServer(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header("Content-type", "text/plain")
             self.end_headers()
-            self.wfile.write(bytes("OK", "utf-8"))
+            self.wfile.write(b"OK")
         else:
             self.send_response(404)
             self.send_header("Content-type", "text/plain")
             self.end_headers()
-            self.wfile.write(bytes("404 Not found", "utf-8"))
+            self.wfile.write(b"404 Not found")
 
 
 def run(server_class=HTTPServer, handler_class=MyFirstServer):
