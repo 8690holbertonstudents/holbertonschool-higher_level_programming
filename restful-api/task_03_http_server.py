@@ -23,35 +23,41 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         """
         if self.path == "/":
             self.send_response(200)
-            self.send_header("Content-type", "text/plain")
+            self.send_header('Content-type', 'text/plain')
             self.end_headers()
-            self.wfile.write(b"Hello, this is a simple API!")
-        elif self.path == "/data":
+            self.wfile.write(b'Hello, this is a simple API!')
+        elif self.path == '/data':
             self.send_response(200)
-            self.send_header("Content-type", "application/json")
+            self.send_header('Content-type', 'application/json')
             self.end_headers()
-            dataset = {"name": "John", "age": 30, "city": "New York"}
+            dataset = {
+                "name": "John",
+                "age": 30,
+                "city": "New York"
+            }
             self.wfile.write(json.dumps(dataset).encode("utf-8"))
-        elif self.path == "/info":
+        elif self.path == '/info':
             self.send_response(200)
-            self.send_header("Content-type", "application/json")
+            self.send_header('Content-type', 'application/json')
             self.end_headers()
-            dataset = {"version": "1.0",
-                       "description": "A simple API built with http.server"}
+            dataset = {
+                "version": "1.0",
+                "description": "A simple API built with http.server"
+            }
             self.wfile.write(json.dumps(dataset).encode("utf-8"))
-        elif self.path == "/status":
+        elif self.path == '/status':
             self.send_response(200)
-            self.send_header("Content-type", "text/plain")
+            self.send_header('Content-type', 'text/plain')
             self.end_headers()
-            self.wfile.write(b"OK")
+            self.wfile.write(b'OK')
         else:
             self.send_response(404)
-            self.send_header("Content-type", "text/plain")
+            self.send_header('Content-type', 'text/plain')
             self.end_headers()
-            self.wfile.write(b"404 Not found")
+            self.wfile.write(b'404 Not found')
 
 
 if __name__ == "__main__":
-    httpd = HTTPServer(('', 8000), SimpleHTTPRequestHandler)
-    print("serving at port", 8000)
+    httpd = HTTPServer(('localhost', 8000), SimpleHTTPRequestHandler)
+    print("server started at port", 8000)
     httpd.serve_forever()
