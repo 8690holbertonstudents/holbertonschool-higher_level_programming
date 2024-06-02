@@ -22,7 +22,7 @@ class MyFirstServer(BaseHTTPRequestHandler):
         """
         if self.path == "/":
             self.send_response(200)
-            self.send_header("Content-type", "text/html")
+            self.send_header("Content-type", "text/plain")
             self.end_headers()
             self.wfile.write(bytes("Hello, this is a simple API!", "utf-8"))
         elif self.path == "/data":
@@ -40,12 +40,12 @@ class MyFirstServer(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(dataset).encode("utf-8"))
         elif self.path == "/status":
             self.send_response(200)
-            self.send_header("Content-type", "text/html")
+            self.send_header("Content-type", "text/plain")
             self.end_headers()
             self.wfile.write(bytes("OK", "utf-8"))
         else:
             self.send_response(404)
-            self.send_header("Content-type", "text/html")
+            self.send_header("Content-type", "text/plain")
             self.end_headers()
             self.wfile.write(bytes("Endpoint not found", "utf-8"))
 
