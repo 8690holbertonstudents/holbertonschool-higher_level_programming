@@ -8,10 +8,7 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-users = {
-    "jane": {"username": "jane", "name": "Jane", "age": 28, "city": "Los Angeles"},
-    "john": {"username": "john", "name": "John", "age": 30, "city": "New York"}
-}
+users = {}
 
 
 @app.route("/")
@@ -72,7 +69,7 @@ def add_user():
     Returns:
         Add a new user to the users dictionary.
     """
-    user_data = request.json
+    user_data = request.get_json
     if "username" not in user_data:
         username = user_data["username"]
         users[username] = user_data
