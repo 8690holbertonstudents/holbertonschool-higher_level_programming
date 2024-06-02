@@ -50,9 +50,17 @@ class MyFirstServer(BaseHTTPRequestHandler):
             self.wfile.write(bytes("Endpoint not found", "utf-8"))
 
 
+def run(server_class=HTTPServer, handler_class=MyFirstServer):
+    """
+    Function to start the HTTPServer at localhost:8000
+    """
+    server_address = ("localhost", 8000)
+    httpd = server_class(server_address, handler_class)
+    httpd.serve_forever()
+
+
 if __name__ == "__main__":
     """
-    Function to run the script at localhost : port 8000
+    Function to run the HTTP server
     """
-    httpd = HTTPServer(("localhost", 8000), MyFirstServer)
-    httpd.serve_forever()
+    run()
