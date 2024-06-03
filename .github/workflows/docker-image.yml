@@ -1,0 +1,21 @@
+name: Build and Push Docker Image
+
+on: push
+
+jobs:
+  build:
+    runs-on: alpine  # Specify the runner OS (optional)
+    steps:
+      - uses: actions/checkout@v3  # Checkout code from your repository
+
+      - name: Build Docker Image
+        run: docker build -t emg@holbertonstudents/extended-hello-alpine:latest .
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.GITHUB_USERNAME }}
+          password: ${{ secrets.CR_PAT }}
+
+      - name: Push Docker Image to GitHub Container Registry
+        run: docker push ghcr.io/emg@holbertonstudents/extended-hello-alpine:latest
