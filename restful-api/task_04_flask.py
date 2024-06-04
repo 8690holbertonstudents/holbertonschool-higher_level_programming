@@ -70,7 +70,7 @@ def add_user():
         Add a new user to the users dictionary.
     """
     user_data = request.get_json()
-    username = user_data["username"]
+    username = user_data.get("username")
     if not username:
         return (jsonify({"error": "Username is required"}), 400)
     users[username] = user_data
