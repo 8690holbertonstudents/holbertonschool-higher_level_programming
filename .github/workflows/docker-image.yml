@@ -22,7 +22,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: ./devops_essentials/github_actions
-          file: ./devops_essentials/github_actions/Dockerfile
+          context: ./.github/workflows
+          file: ./.github/workflows/Dockerfile
           push: true
           tags: ghcr.io/${{ github.repository }}:latest
