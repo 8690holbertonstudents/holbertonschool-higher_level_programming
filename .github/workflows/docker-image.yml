@@ -4,7 +4,7 @@ on: push
 
 jobs:
   build:
-    runs-on: alpine:latest  # Specify the runner OS (optional)
+    runs-on: ubuntu:latest  # Specify the runner OS (optional)
     steps:
       - name: Checkout
         uses: actions/checkout@v4  # Checkout code from your repository
