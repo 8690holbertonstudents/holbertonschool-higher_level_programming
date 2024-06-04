@@ -51,13 +51,16 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(b"OK")
         else:
-            self.send_error(404, "Endpoint not found")
-            #self.send_header("Content-type", "text/plain")
-            #self.end_headers()
-            #self.wfile.write(b"Endpoint not found")
+            self.send_response(404)
+            self.send_header('Content-type', 'text/plain')
+            self.end_headers()
+            self.wfile.write(b'404 Not Found')
 
 
 if __name__ == "__main__":
-    httpd = HTTPServer(("localhost", 8000), SimpleHTTPRequestHandler)
-    print("server started at port", 8000)
+    server_class = HTTPServer
+    handler_class = SimpleHTTPRequestHandler
+    port = 8000
+    server_address = ('localhost', port)
+    httpd = server_class(server_address, handler_class)
     httpd.serve_forever()
