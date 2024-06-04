@@ -51,10 +51,10 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(b"OK")
         else:
-            self.send_response(404)
+            self.send_response(404, "Not Found")
             self.send_header("Content-type", "text/plain")
             self.end_headers()
-            self.wfile.write(b"Err 404: Not found")
+            self.wfile.write(b"Endpoint not found")
 
 
 if __name__ == "__main__":
