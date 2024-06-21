@@ -10,12 +10,12 @@ if __name__ == "__main__":
     from model_state import Base, State
     import sys
 
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
+    usr = sys.argv[1]
+    pwd = sys.argv[2]
+    db = sys.argv[3]
 
     connection_string = (
-        f"mysql+mysqlconnector://{username}:{password}@localhost:3306/{database}")
+        f"mysql+mysqlconnector://{usr}:{pwd}@localhost:3306/{db}")
     engine = create_engine(connection_string, echo=False)
 
     Session = sessionmaker(bind=engine)
