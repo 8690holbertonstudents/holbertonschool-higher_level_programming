@@ -18,7 +18,8 @@ if __name__ == "__main__":
         f"mysql+mysqlconnector://{usr}:{pwd}@localhost:3306/{db}")
     engine = create_engine(connection_string, echo=False)
 
-    Session = sessionmaker(bind=engine)
+    Base.metadata.create_all(engine)
+    Session = sessionmaker(engine)
 
     with Session() as session:
         query = session.query(State).order_by(State.id.asc()).all()
