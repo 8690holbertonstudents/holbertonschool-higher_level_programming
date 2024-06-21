@@ -17,7 +17,7 @@ if __name__ == "__main__":
                          password=password, database=database)
     cur = db.cursor()
     cur.execute(
-        """SELECT * FROM states WHERE name = "{}" \
+        """SELECT * FROM states WHERE BINARY name = "{}" \
         ORDER BY id ASC""".format(searched))
 
     rows = cur.fetchall()
