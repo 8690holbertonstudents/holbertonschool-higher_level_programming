@@ -11,8 +11,8 @@ if __name__ == "__main__":
     import sys
 
     connection_string = (
-        f"mysql+mysqlconnector://{sys.argv[1]}:{sys.argv[2]}"
-        f"@localhost:3306/{sys.argv[3]}")
+        "mysql+mysqlconnector://{}:{}@localhost:3306/{}".format(
+            sys.argv[1], sys.argv[2], sys.argv[3]))
     engine = create_engine(connection_string, echo=None)
 
     Base.metadata.create_all(engine)
@@ -23,7 +23,7 @@ if __name__ == "__main__":
     states = session.query(State).order_by(State.id.asc()).all()
 
     for row in states:
-        print(f"{row.id}: {row.name}")
+        print("{}: {}".format(row.id, row.name))
 
     session.close()
     engine.dispose()
