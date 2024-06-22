@@ -25,7 +25,10 @@ if __name__ == "__main__":
 
     states = session.query(State).order_by(State.id.asc()).first()
 
-    print(f"{states.id}: {states.name}")
+    if not states:
+        print("No Result")
+    else:
+        print(f"{states.id}: {states.name}")
 
     session.close()
     engine.dispose()
