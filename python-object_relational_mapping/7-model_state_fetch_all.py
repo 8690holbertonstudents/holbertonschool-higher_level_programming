@@ -15,10 +15,10 @@ if __name__ == "__main__":
             sys.argv[1], sys.argv[2], sys.argv[3]))
     engine = create_engine(connection_string, echo=None)
 
-    Base.metadata.create_all(engine)
-
     Session = sessionmaker(bind=engine)
     session = Session()
+
+    Base.metadata.create_all(engine)
 
     states = session.query(State).order_by(State.id.asc()).all()
 
