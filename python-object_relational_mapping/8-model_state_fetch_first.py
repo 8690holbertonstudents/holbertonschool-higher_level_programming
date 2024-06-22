@@ -15,8 +15,7 @@ if __name__ == "__main__":
     pwd = sys.argv[2]
     db = sys.argv[3]
 
-    connection_string = (
-        f"mysql+mysqlconnector://{usr}:{pwd}@localhost:3306/{db}")
+    connection_string = (f"mysql+mysqldb://{usr}:{pwd}@localhost:3306/{db}")
     engine = create_engine(connection_string, echo=None)
 
     Base.metadata.create_all(engine)
@@ -24,7 +23,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    states = session.query(State).first()
+    states = session.query(State).order_by(State.id.asc()).first()
 
     print(f"{states.id}: {states.name}")
 
