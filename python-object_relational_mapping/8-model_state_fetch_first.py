@@ -7,8 +7,8 @@ Import State and Base from the model_state module
 """
 if __name__ == "__main__":
     from sqlalchemy import create_engine
-    from sqlalchemy.orm import sessionmaker
     from model_state import Base, State
+    from sqlalchemy.orm import sessionmaker
     import sys
 
     usr = sys.argv[1]
@@ -17,11 +17,16 @@ if __name__ == "__main__":
 
     connection_string = (
         f"mysql+mysqlconnector://{usr}:{pwd}@localhost:3306/{db}")
-    engine = create_engine(connection_string, echo=False)
+    engine = create_engine(connection_string, echo=None)
 
     Base.metadata.create_all(engine)
-    Session = sessionmaker(engine)
 
-    with Session() as session:
-        query = session.query(State).order_by(State.id).first()
-        print(f"{query.id}: {query.name}")
+    Session = sessionmaker(bind=engine)
+    session = Session()
+
+    states = session.query(State).first()
+
+    print(f"{states.id}: {states.name}")
+
+    session.close()
+    engine.dispose()
