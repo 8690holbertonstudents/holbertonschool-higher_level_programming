@@ -10,9 +10,11 @@ if __name__ == "__main__":
     from sqlalchemy.orm import sessionmaker
     import sys
 
-    connection_string = (
-        "mysql+mysqlconnector://{}:{}@localhost:3306/{}".format(
-            sys.argv[1], sys.argv[2], sys.argv[3]))
+    usr = sys.argv[1]
+    pwd = sys.argv[2]
+    db = sys.argv[3]
+
+    connection_string = (f"mysql+mysqldb://{usr}:{pwd}@localhost:3306/{db}")
     engine = create_engine(connection_string, echo=None)
 
     Session = sessionmaker(bind=engine)
@@ -23,7 +25,7 @@ if __name__ == "__main__":
     states = session.query(State).order_by(State.id.asc()).all()
 
     for row in states:
-        print("{}: {}".format(row.id, row.name))
+        print(f"{row.id}: {row.name}")
 
     session.close()
     engine.dispose()
