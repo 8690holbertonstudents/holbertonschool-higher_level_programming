@@ -2,11 +2,14 @@
 """Start link class to table in database
 """
 import sys
-from model_state import Base, State
+from model_state import Base
+from sqlalchemy import create_engine
 
-from sqlalchemy import (create_engine)
+usr = sys.argv[1]
+pwd = sys.argv[2]
+db = sys.argv[3]
 
 if __name__ == "__main__":
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
-        sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
+    connection_string = (f"mysql+mysqldb://{usr}:{pwd}@localhost:3306/{db}")
+    engine = create_engine(connection_string, echo=None)
     Base.metadata.create_all(engine)
