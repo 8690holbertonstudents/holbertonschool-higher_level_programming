@@ -23,14 +23,15 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    st_delete = session.query(State).filter(
-        func.lower(State.name).like("%a%")).all()
+    st_delete = session.query(State).all()
 
     session.execute(st_delete)
     session.commit()
 
     for state in st_delete:
-        session.delete(state)
+        compare = func.lower(state.name)
+        if "a" in compare:
+            session.delete(state)
 
     session.close()
     engine.dispose()
