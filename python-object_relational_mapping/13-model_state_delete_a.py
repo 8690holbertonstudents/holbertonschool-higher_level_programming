@@ -24,7 +24,7 @@ if __name__ == "__main__":
     session = Session()
 
     st_delete = session.query(State).filter(
-        func.lower(State.name).contains("a")).all()
+        func.lower(State.name).like("%a%")).all()
 
     session.execute(st_delete)
     session.commit()
