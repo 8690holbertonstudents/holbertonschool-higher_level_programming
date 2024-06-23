@@ -6,7 +6,7 @@ Using module SQLAlchemy
 Import State and Base from the model_state module
 """
 if __name__ == "__main__":
-    from sqlalchemy import create_engine, func
+    from sqlalchemy import create_engine
     from model_state import Base, State
     from sqlalchemy.orm import sessionmaker
     import sys
@@ -23,15 +23,10 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    st_delete = session.query(State).all()
-
-    session.execute(st_delete)
-    session.commit()
+    st_delete = session.query(State).filter(State.name.like("%A%")).all()
 
     for state in st_delete:
-        compare = func.lower(state.name)
-        if "a" in compare:
-            session.delete(state)
+        session.delete(state)
 
     session.close()
     engine.dispose()
