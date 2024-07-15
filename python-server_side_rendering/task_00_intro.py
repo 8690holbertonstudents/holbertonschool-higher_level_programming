@@ -28,24 +28,24 @@ def generate_invitations(template, attendees):
     try:
         for id, _dict in enumerate(attendees):
             if _dict["name"] is None:
-                _dict["name"] = "name: N/A"
+                _dict["name"] = "N/A"
             replace_str = template.replace("{name}", _dict["name"])
             if _dict["event_title"] is None:
-                _dict["event_title"] = "event_title: N/A"
+                _dict["event_title"] = "N/A"
             replace_str = replace_str.replace(
                 "{event_title}", _dict["event_title"])
             if _dict["event_date"] is None:
-                _dict["event_date"] = "event_date: N/A"
+                _dict["event_date"] = "N/A"
             replace_str = replace_str.replace(
                 "{event_date}", _dict["event_date"])
             if _dict["event_location"] is None:
-                _dict["event_location"] = "event_location: N/A"
+                _dict["event_location"] = "N/A"
             replace_str = replace_str.replace(
                 "{event_location}", _dict["event_location"])
 
             output_file_name = f"output_{id + 1}.txt"
             if os.path.exists(output_file_name):
-                pass
+                return (f"File {output_file_name} already exists")
             else:
                 with open(output_file_name, "w", encoding="utf-8") as txt_file:
                     txt_file.write(replace_str)
