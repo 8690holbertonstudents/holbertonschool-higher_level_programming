@@ -8,24 +8,10 @@ def generate_invitations(template, attendees):
     """
     Function to create a Simple Templating Program
     """
-
-    """
-    In this task, you will create a Python function that generates
-    personalized invitation files from a template with placeholders
-    and a list of objects. Each output file should be named sequentially,
-    starting from 1. You will also implement specific error handling for various edge cases.
-    """
-
-    """
-    Check for valid data in template
-    """
-    if template is None:
+    if template is None or template == "":
         return ("Template is empty, no output files generated")
     if not isinstance(template, str):
         return ("template must be a string")
-    """
-    Check for valid data in attendees
-    """
     if attendees is None:
         return ("No data provided, no output files generated.")
     if not isinstance(attendees, list):
