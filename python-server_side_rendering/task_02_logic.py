@@ -21,8 +21,10 @@ def contact():
 def items():
     try:
         with open('items.json', 'r', encoding='utf-8') as json_file:
-            items = json_file.readlines()
+            data = json.load(json_file)
+            items = data.get("items", [])
     except Exception as e:
+        items = []
         return str(e)
     return render_template('items.html', items=items)
 
