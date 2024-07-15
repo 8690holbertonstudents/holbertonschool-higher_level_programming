@@ -28,18 +28,18 @@ def generate_invitations(template, attendees):
     try:
         for id, _dict in enumerate(attendees):
             if _dict["name"] is None:
-                _dict["name"] = "N/A"
+                _dict["name"] = "name: N/A"
             replace_str = template.replace("{name}", _dict["name"])
             if _dict["event_title"] is None:
-                _dict["event_title"] = "N/A"
+                _dict["event_title"] = "event_title: N/A"
             replace_str = replace_str.replace(
                 "{event_title}", _dict["event_title"])
             if _dict["event_date"] is None:
-                _dict["event_date"] = "N/A"
+                _dict["event_date"] = "event_date: N/A"
             replace_str = replace_str.replace(
                 "{event_date}", _dict["event_date"])
             if _dict["event_location"] is None:
-                _dict["event_location"] = "N/A"
+                _dict["event_location"] = "event_location: N/A"
             replace_str = replace_str.replace(
                 "{event_location}", _dict["event_location"])
 
