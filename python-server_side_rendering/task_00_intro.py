@@ -8,14 +8,18 @@ def generate_invitations(template, attendees):
     """
     Function to create a Simple Templating Program
     """
-    if template is None or template == "":
+    if not template or template == "":
         return ("Template is empty, no output files generated")
+    
     if not isinstance(template, str):
         return ("template must be a string")
-    if attendees is None or attendees == []:
+    
+    if not attendees:
         return ("No data provided, no output files generated.")
+    
     if not isinstance(attendees, list):
         return ("attendees must be a list")
+    
     for _dict in attendees:
         if not isinstance(_dict, dict):
             return ("each element in attendees must be a dictionary")
