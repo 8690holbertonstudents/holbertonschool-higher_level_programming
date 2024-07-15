@@ -12,7 +12,7 @@ def generate_invitations(template, attendees):
         return ("Template is empty, no output files generated")
     if not isinstance(template, str):
         return ("template must be a string")
-    if attendees is None:
+    if attendees is None or attendees == []:
         return ("No data provided, no output files generated.")
     if not isinstance(attendees, list):
         return ("attendees must be a list")
