@@ -9,7 +9,7 @@
     {% include 'header.html' %}
     
     {% if error %}
-        <p>Error occurred: {{ error }}</p>
+        <p>{{ error }}</p>
     {% elif product %}
         <h1>Product with given id</h1>
         <table>

@@ -58,7 +58,7 @@ def products():
             for product in products:
                 if str(product['id']) == id:
                     return render_template('product_display.html', product=product)
-            return render_template('product_display.html', error='Product id not found')
+            return render_template('product_display.html', error='Failed: Product not found')
 
     except Exception as e:
         products = []
